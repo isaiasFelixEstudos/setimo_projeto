@@ -13,7 +13,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-          child: Text('Home'),
+          child: Center(
+            child: Image.network(
+              'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
+              width: 50,
+              height: 50,
+            ),
+          ),
         ),
         actions: [
           PopupMenuButton(
@@ -30,15 +36,21 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               itemBuilder: (context) => [
                     PopupMenuItem(
-                      child: Text('Home'),
+                      child: Card(
+                        child: Text('Home'),
+                      ),
                       value: '/home',
                     ),
                     PopupMenuItem(
-                      child: Text('Cadastrar usuário'),
+                      child: Card(
+                        child: Text('Cadastrar usuário'),
+                      ),
                       value: '/cadastroUsuario',
                     ),
                     PopupMenuItem(
-                      child: Text('Tela de login'),
+                      child: Card(
+                        child: Text('Tela de login'),
+                      ),
                       value: '/teladelogin',
                     ),
                   ])
@@ -49,18 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.fromLTRB(40, 10, 40, 40),
             child: Column(
-              children: [
-                Center(
-                  child: Image.network(
-                    'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
-                    width: 100,
-                    height: 100,
-                  ),
-                ),
-                Divider(
-                  height: 20,
-                ),
-              ],
+              children: [],
             ),
           )
         ],
