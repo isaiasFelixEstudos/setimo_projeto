@@ -31,7 +31,8 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   Future<void> logarBase() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailvalido.text, password: _senhavalida.text);
-    Navigator.of(context).pushNamed("/logado");
+    Navigator.of(context).pushNamed('/telalogada');
+
   }
 
   Future<void> logarGoogle() async {
@@ -144,7 +145,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/cadastro');
+                    Navigator.of(context).pushNamed('/cadastroUsuario');
                   },
                   child: Text('Criar cadastro'),
                 ),

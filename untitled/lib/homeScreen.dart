@@ -53,12 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Center(
                   child: Image.network(
                     'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
-                    width: 300,
-                    height: 300,
+                    width: 250,
+                    height: 250,
                   ),
                 ),
-                Divider(height: 20,)
-
+                Divider(
+                  height: 20,
+                ),
               ],
             ),
           )
