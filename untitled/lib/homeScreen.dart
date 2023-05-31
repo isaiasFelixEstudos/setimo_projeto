@@ -47,14 +47,14 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(40, 40, 40, 40),
+            padding: const EdgeInsets.fromLTRB(40, 10, 40, 40),
             child: Column(
               children: [
                 Center(
                   child: Image.network(
                     'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
-                    width: 250,
-                    height: 250,
+                    width: 100,
+                    height: 100,
                   ),
                 ),
                 Divider(
