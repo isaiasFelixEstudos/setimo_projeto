@@ -37,8 +37,8 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   Future<void> logarGoogle() async {
     final GoogleSignIn googleSignIn = await GoogleSignIn();
     final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-    final GoogleSignInAuthentication? googleAuth = await googleUser
-        ?.authentication;
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
     print(googleAuth?.idToken); // should not be null or empty
     print(googleAuth?.accessToken); // should not be null or empty
 
@@ -47,14 +47,13 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
       idToken: googleAuth?.idToken,
     );
 
-    final UserCredential authResult = await FirebaseAuth.instance
-        .signInWithCredential(credential);
+    final UserCredential authResult =
+        await FirebaseAuth.instance.signInWithCredential(credential);
     final User? user = authResult.user;
 
     //customMaterialBanner(context, 'Logado com sucesso!', Colors.green);
     if (user != null) {
-      Navigator.of(context)
-          .pushNamedAndRemoveUntil(
+      Navigator.of(context).pushNamedAndRemoveUntil(
           '/homeLogin', (Route<dynamic> route) => false);
     }
   }
