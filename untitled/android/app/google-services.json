@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "323736047715",
+    "firebase_url": "https://myproject-d139b-default-rtdb.firebaseio.com",
+    "project_id": "myproject-d139b",
+    "storage_bucket": "myproject-d139b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323736047715:android:486ef16d00ba13848da856",
+        "android_client_info": {
+          "package_name": "com.example.sixproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323736047715-ncdqpbb5licon5c4rlpi6u99ntur6kq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzupaRXyuOZbPXKjCcujfnUP_1kCIP4xA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323736047715-ncdqpbb5licon5c4rlpi6u99ntur6kq8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "323736047715-taovfeqm91cqr357oldr0ms30j229har.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sixproject"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323736047715:android:5b07f492f752bc4d8da856",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323736047715-ncdqpbb5licon5c4rlpi6u99ntur6kq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzupaRXyuOZbPXKjCcujfnUP_1kCIP4xA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323736047715-ncdqpbb5licon5c4rlpi6u99ntur6kq8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "323736047715-taovfeqm91cqr357oldr0ms30j229har.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.sixproject"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
