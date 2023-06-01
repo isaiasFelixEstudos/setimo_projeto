@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PaginaBiblioteca extends StatefulWidget {
-  const PaginaBiblioteca({super.key});
+  const PaginaBiblioteca({Key? key}) : super(key: key);
 
   @override
   State<PaginaBiblioteca> createState() => _PaginaBibliotecaState();
 }
 
 class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
+  CollectionReference collection =
+      FirebaseFirestore.instance.collection('generos');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,24 +20,37 @@ class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
         children: [
           Row(
             children: [
-              Text('Livros por Generos'),
-              SizedBox(
-                height: 20,
-              ),
+              Text('Livros por Gêneros'),
+              SizedBox(height: 20),
             ],
           ),
           Expanded(
             child: ListView.builder(
-                itemCount: 2,
-                itemBuilder: (BuildContext context, int index) {
-                  return Card(
-                    child: ListTile(
-                      title: Text("Cliente: "),
-                      subtitle: Text("Idade: "),
-                    ),
-                  );
-                }),
-          )
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return CarouselSlider(
+                  options: CarouselOptions(height: 200),
+                  items: [
+                    1,
+                    2,
+                    3,
+                  ].map((i) {
+                    return Builder(
+                      builder: (BuildContext context) {
+                        return Card(
+                          color: Colors.red,
+                          child: ListTile(
+                            title: Text('Nome Livro $i'),
+                            subtitle: Text('Páginas'),
+                          ),
+                        );
+                      },
+                    );
+                  }).toList(),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );

@@ -19,7 +19,7 @@ void main() async {
         '/home': (_) => HomeScreen(),
         '/cadastroUsuario': (_) => PaginaDeCadastro(),
         '/teladelogin': (_) => TelaDeLogin(),
-        '/telalogada':(_) => TelaLogada(),
+        '/telalogada': (_) => TelaLogada(),
       },
     ),
   );
