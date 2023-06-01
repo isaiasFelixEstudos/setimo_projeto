@@ -10,8 +10,11 @@ class PaginaBiblioteca extends StatefulWidget {
 }
 
 class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
-  CollectionReference collection =
-      FirebaseFirestore.instance.collection('generos');
+  final db = FirebaseFirestore.instance;
+  void getcolecao() {
+    final genero = db.collection('generos');
+    print(genero.path);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +54,7 @@ class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
               },
             ),
           ),
+          ElevatedButton(onPressed: getcolecao, child: Text('Clique aqui'))
         ],
       ),
     );
