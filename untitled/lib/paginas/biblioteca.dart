@@ -11,9 +11,10 @@ class PaginaBiblioteca extends StatefulWidget {
 
 class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
   final db = FirebaseFirestore.instance;
+  final generos = '';
   void getcolecao() {
     final genero = db.collection('generos');
-    print(genero.path);
+    final generos = genero;
   }
 
   @override
