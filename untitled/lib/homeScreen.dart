@@ -24,8 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
               onSelected: (value) {
                 if (value == '/teladelogin') {
                   Navigator.of(context).pushNamed('/teladelogin');
-                } else if (value == '/home') {
-                  Navigator.popUntil(context, ModalRoute.withName('/home'));
+                } else if (value == '/cadastroUsuario') {
+                  Navigator.of(
+                    context,
+                  ).pushNamed('/cadastroUsuario');
                 }
               },
               itemBuilder: (context) => [

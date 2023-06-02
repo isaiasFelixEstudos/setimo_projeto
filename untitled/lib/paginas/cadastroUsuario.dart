@@ -59,6 +59,17 @@ class _PaginaDeCadastroState extends State<PaginaDeCadastro> {
             padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
             child: Column(
               children: [
+                Image.network(
+                  'https://cdn-icons-png.flaticon.com/512/181/181548.png',
+                  width: 100,
+                  height: 100,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text('Cadastro de usuário'),
+                ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _emailvalido,
