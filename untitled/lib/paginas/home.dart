@@ -14,8 +14,8 @@ class _HomeState extends State<Home> {
       body: Center(
         child: Image.network(
           'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
-          width: 50,
-          height: 50,
+          width: 100,
+          height: 100,
         ),
       ),
     );
