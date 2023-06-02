@@ -10,21 +10,40 @@ class PaginaBiblioteca extends StatefulWidget {
 }
 
 class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
-  final bd = FirebaseFirestore.instance;
+  FirebaseFirestore restore = FirebaseFirestore.instance;
+  List<String> listgeneros = [];
   Future<void> GetCollection() async {
-    final genero = await bd.collection('comedia_').get();
-    print(genero.docs);
+    QuerySnapshot query = await restore.collection('generos').get();
+
+    query.docs.forEach((doc) {
+      String titulogenero = doc.get('titulo').get();
+      setState(() {
+        listgeneros.add(titulogenero);
+      });
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Column(
-        children: [
-          ElevatedButton(onPressed: GetCollection, child: Text('Clique aqui'))
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: listgeneros.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
+                    child: ListTile(
+                      title: Text('Genero: ' + listgeneros[index]),
+                    ),
+                  );
+                },
+              ),
+            )
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
