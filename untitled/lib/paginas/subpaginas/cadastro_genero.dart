@@ -21,6 +21,8 @@ class _CadastroGeneroState extends State<CadastroGenero> {
     _formkey.currentState?.validate();
   }
 
+  final db = FirebaseFirestore.instance;
+
   /*
   if (sigla.isNotEmpty && definicao.isNotEmpty) {
       _db.collection('siglas').add({
