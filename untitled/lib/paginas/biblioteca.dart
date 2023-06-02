@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class PaginaBiblioteca extends StatefulWidget {
   const PaginaBiblioteca({Key? key}) : super(key: key);
@@ -10,13 +9,6 @@ class PaginaBiblioteca extends StatefulWidget {
 }
 
 class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
-  final db = FirebaseFirestore.instance;
-  final generos = '';
-  void getcolecao() {
-    final genero = db.collection('generos');
-    final generos = genero;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +47,6 @@ class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
               },
             ),
           ),
-          ElevatedButton(onPressed: getcolecao, child: Text('Clique aqui'))
         ],
       ),
     );
