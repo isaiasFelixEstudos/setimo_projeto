@@ -21,6 +21,7 @@ class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
         listgeneros.add(titulogenero);
       });
     });
+    print(listgeneros.toList());
   }
 
   @override
@@ -35,7 +36,7 @@ class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
                 itemBuilder: (BuildContext context, int index) {
                   return Card(
                     child: ListTile(
-                      title: Text('Genero: ' + listgeneros[index]),
+                      title: Text('Genero: ' + listgeneros[index].toString()),
                     ),
                   );
                 },
