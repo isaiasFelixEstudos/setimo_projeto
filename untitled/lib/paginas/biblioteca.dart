@@ -10,12 +10,21 @@ class PaginaBiblioteca extends StatefulWidget {
 }
 
 class _PaginaBibliotecaState extends State<PaginaBiblioteca> {
+  final bd = FirebaseFirestore.instance;
+  Future<void> GetCollection() async {
+    final genero = await bd.collection('comedia_').get();
+    print(genero.docs);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [],
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          ElevatedButton(onPressed: GetCollection, child: Text('Clique aqui'))
+        ],
       ),
-    );
+    ));
   }
 }

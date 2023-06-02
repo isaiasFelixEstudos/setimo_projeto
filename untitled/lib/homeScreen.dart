@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'paginas/biblioteca.dart';
 import 'paginas/home.dart';
 import 'paginas/areausuario.dart';
+import 'paginas/cadgeneroelivro.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Home(),
           PaginaBiblioteca(),
-          AreaUsuario(),
+          CadastrarGeneroLivro(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -72,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            label: 'Livros por usuário',
+            label: 'Cadastrar Livros/Generos',
           ),
         ],
       ),
