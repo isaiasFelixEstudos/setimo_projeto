@@ -32,7 +32,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailvalido.text, password: _senhavalida.text);
     Navigator.of(context).pushNamed('/telalogada');
-
   }
 
   Future<void> logarGoogle() async {
@@ -76,15 +75,24 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text('Tela de login')),
-      ),
+      appBar: AppBar(),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
             child: Column(
               children: [
+                Image.network(
+                  'https://cdn-icons-png.flaticon.com/512/181/181548.png',
+                  width: 100,
+                  height: 100,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text('Login App'),
+                ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: _emailvalido,

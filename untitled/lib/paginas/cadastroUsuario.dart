@@ -50,9 +50,7 @@ class _PaginaDeCadastroState extends State<PaginaDeCadastro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text('Cadastrar Usuário')),
-      ),
+      appBar: AppBar(),
       body: Column(
         children: [
           Padding(
