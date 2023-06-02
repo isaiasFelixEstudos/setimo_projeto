@@ -29,11 +29,11 @@ class _CadastrarGeneroLivroState extends State<CadastrarGeneroLivro> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
-            label: 'Cadastrar Livro',
+            label: 'Cadastrar Genero',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.bookmark),
-            label: 'Cadastrar Genero',
+            label: 'Cadastrar Livro',
           ),
         ],
       ),

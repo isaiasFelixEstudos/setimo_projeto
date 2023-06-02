@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
@@ -20,19 +22,6 @@ class _CadastroGeneroState extends State<CadastroGenero> {
   void _validacaoFormulario() {
     _formkey.currentState?.validate();
   }
-
-  final db = FirebaseFirestore.instance;
-
-  /*
-  if (sigla.isNotEmpty && definicao.isNotEmpty) {
-      _db.collection('siglas').add({
-        'sigla': sigla,
-        'definicao': definicao,
-        'email': email,
-        'telefone': telefone,
-        'criacao': FieldValue.serverTimestamp(),
-      });
-  */
 
   String _validarEntrada(String? mensagem) {
     if (mensagem == null || mensagem.isEmpty) {
@@ -113,9 +102,14 @@ class _CadastroGeneroState extends State<CadastroGenero> {
                     );
                   },
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {}, child: Text('Cadastrar Genero'))
               ],
             ),
-          )
+          ),
         ],
       ),
     );
