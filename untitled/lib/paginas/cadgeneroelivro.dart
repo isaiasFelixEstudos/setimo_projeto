@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'subpaginas/cadastro_genero.dart';
+import 'subpaginas/cadastro_livro.dart';
 
 class CadastrarGeneroLivro extends StatefulWidget {
   const CadastrarGeneroLivro({super.key});
@@ -15,7 +17,7 @@ class _CadastrarGeneroLivroState extends State<CadastrarGeneroLivro> {
       appBar: AppBar(title: Text('Cadastro de Livros e Genero')),
       body: IndexedStack(
         index: _paginaSelecionada,
-        children: [],
+        children: [CadastroGenero(), CadastroLivro()],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _paginaSelecionada,
