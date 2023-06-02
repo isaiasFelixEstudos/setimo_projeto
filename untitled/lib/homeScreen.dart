@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'paginas/biblioteca.dart';
 import 'paginas/home.dart';
 import 'paginas/areausuario.dart';
-import 'paginas/cadgeneroelivro.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,6 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
               onSelected: (value) {
                 if (value == '/teladelogin') {
                   Navigator.of(context).pushNamed('/teladelogin');
+                }
+                if (value == '/cadastrolicroegenero') {
+                  Navigator.of(context).pushNamed('/cadastrolicroegenero');
                 } else if (value == '/cadastroUsuario') {
                   Navigator.of(
                     context,
@@ -44,6 +46,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       value: '/teladelogin',
                     ),
+                    PopupMenuItem(
+                      child: Card(
+                        child: Text('Tela de cadastro de livro e genero'),
+                      ),
+                      value: '/cadastrolicroegenero',
+                    ),
                   ])
         ],
       ),
@@ -52,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           Home(),
           PaginaBiblioteca(),
-          CadastrarGeneroLivro(),
+          AreaUsuario(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -73,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.star),
-            label: 'Cadastrar Livros/Generos',
+            label: 'Área do usuários',
           ),
         ],
       ),

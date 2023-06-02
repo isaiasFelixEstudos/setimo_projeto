@@ -5,6 +5,7 @@ import 'paginas/cadastroUsuario.dart';
 import 'paginas/telaDeLogin.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'paginas/telaLogada.dart';
+import 'paginas/cadgeneroelivro.dart';
 
 void main() async {
   await Firebase.initializeApp(
@@ -20,6 +21,7 @@ void main() async {
         '/cadastroUsuario': (_) => PaginaDeCadastro(),
         '/teladelogin': (_) => TelaDeLogin(),
         '/telalogada': (_) => TelaLogada(),
+        '/cadastrolicroegenero': (_) => CadastrarGeneroLivro(),
       },
     ),
   );
