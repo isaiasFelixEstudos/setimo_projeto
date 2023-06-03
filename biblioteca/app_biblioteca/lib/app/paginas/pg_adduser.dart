@@ -1,4 +1,4 @@
-//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
@@ -20,12 +20,11 @@ class _PaginaDeCadastroState extends State<PaginaDeCadastro> {
     _formkey.currentState?.validate();
   }
 
-/*
   Future<void> cadastrarBase() async {
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailvalido.text, password: _senhavalida.text);
   }
-*/
+
   String _validarEntrada(String? mensagem) {
     if (mensagem == null || mensagem.isEmpty) {
       return 'Preencha o campo';
@@ -112,10 +111,10 @@ class _PaginaDeCadastroState extends State<PaginaDeCadastro> {
                 SizedBox(
                   height: 20,
                 ),
-                /*ElevatedButton(
+                ElevatedButton(
                   onPressed: cadastrarBase,
                   child: Text('Cadastrar'),
-                ),*/
+                ),
               ],
             ),
           )

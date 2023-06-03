@@ -1,6 +1,6 @@
-//import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-//import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class TelaDeLogin extends StatefulWidget {
   const TelaDeLogin({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
       return 'Campo preenchido';
     }
   }
-/*
+
   Future<void> logarBase() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailvalido.text, password: _senhavalida.text);
@@ -35,7 +35,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   }
 
   Future<void> logarGoogle() async {
-    
     final GoogleSignIn googleSignIn = await GoogleSignIn();
     final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
     final GoogleSignInAuthentication? googleAuth =
@@ -58,7 +57,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
           '/homeLogin', (Route<dynamic> route) => false);
     }
   }
-  */
 
   @override
   void initState() {
@@ -138,14 +136,14 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                 ),
                 SizedBox(
                   height: 20,
-                ), /*
+                ),
                 ElevatedButton(
                   onPressed: logarBase,
                   child: Text('Login'),
                 ),
                 SizedBox(
                   height: 2,
-                ), 
+                ),
                 ElevatedButton(
                   onPressed: logarGoogle,
                   child: Text('Login - google'),
@@ -158,7 +156,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                     Navigator.of(context).pushNamed('/cadastroUsuario');
                   },
                   child: Text('Criar cadastro'),
-                ),*/
+                ),
               ],
             ),
           )
