@@ -12,10 +12,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Image.network(
-          'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
-          width: 100,
-          height: 100,
+        child: Column(
+          children: [
+            Image.network(
+              'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
+              width: 100,
+              height: 100,
+            ),
+            Text('App de Bibliotéca')
+          ],
         ),
       ),
     );
