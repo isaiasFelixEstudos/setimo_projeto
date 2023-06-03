@@ -99,7 +99,7 @@ class _PaginaDeCadastroState extends State<PaginaDeCadastro> {
                     errorBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: _formValido ? Colors.blue : Colors.red)),
-                    labelText: "Email",
+                    labelText: "Senha",
                   ),
                   onChanged: (value) {
                     setState(() {
