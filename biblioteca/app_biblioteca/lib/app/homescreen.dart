@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'paginas/areadousuario.dart';
 import 'paginas/home.dart';
 import 'paginas/biblioteca.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -11,6 +12,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  String situacao = '';
+  @override
+  void initState() {
+    super.initState();
+    ChecarSessao();
+  }
+
+  Future<void> ChecarSessao() async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      print('Usuario Logado, Id: ${user.email}');
+    } else {
+      print('Usuário não logado');
+    }
+  }
+
   int _paginaSelecionada = 0;
 
   @override
