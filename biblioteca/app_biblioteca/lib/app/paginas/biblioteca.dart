@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Biblioteca extends StatefulWidget {
   const Biblioteca({super.key});
@@ -9,6 +9,7 @@ class Biblioteca extends StatefulWidget {
 }
 
 class _BibliotecaState extends State<Biblioteca> {
+  /*
   Future<void> getColecao() async {
     final db = FirebaseFirestore.instance;
     final generos = db.collection('generos').doc('comedia_');
@@ -23,13 +24,14 @@ class _BibliotecaState extends State<Biblioteca> {
     super.initState();
     getColecao();
   }
+  */
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          ElevatedButton(onPressed: getColecao, child: Text('Listar generos'))
+          /*ElevatedButton(onPressed: getColecao, child: Text('Listar generos'))*/
         ],
       ),
     );
