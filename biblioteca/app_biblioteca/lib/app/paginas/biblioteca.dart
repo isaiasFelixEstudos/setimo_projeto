@@ -32,6 +32,11 @@ class _BibliotecaState extends State<Biblioteca> {
       body: Column(
         children: [
           /*ElevatedButton(onPressed: getColecao, child: Text('Listar generos'))*/
+          Center(
+            child: Text(
+              'Livros Publicados',
+            ),
+          )
         ],
       ),
     );

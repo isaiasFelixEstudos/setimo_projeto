@@ -12,7 +12,11 @@ class _AddGeneroState extends State<AddGenero> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [],
+        children: [
+          Center(
+            child: Text('Página de adicionar Genero'),
+          ),
+        ],
       ),
     );
   }

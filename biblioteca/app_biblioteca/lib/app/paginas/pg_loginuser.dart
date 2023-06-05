@@ -145,17 +145,21 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                   height: 2,
                 ),
                 ElevatedButton(
-                  onPressed: logarGoogle,
-                  child: Text('Login - google'),
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/cadastroUsuario');
+                  },
+                  child: Text('Criar cadastro'),
                 ),
                 SizedBox(
                   height: 2,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/cadastroUsuario');
-                  },
-                  child: Text('Criar cadastro'),
+                  onPressed: logarGoogle,
+                  child: Image.network(
+                    'https://static.vecteezy.com/system/resources/previews/009/428/333/original/3d-social-media-icons-google-free-png.png',
+                    width: 50,
+                    height: 50,
+                  ),
                 ),
               ],
             ),

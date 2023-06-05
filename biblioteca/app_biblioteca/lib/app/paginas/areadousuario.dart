@@ -12,7 +12,11 @@ class _AreaDoUsuarioState extends State<AreaDoUsuario> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [],
+        children: [
+          Center(
+            child: Text('Área do Usuário'),
+          )
+        ],
       ),
     );
   }
