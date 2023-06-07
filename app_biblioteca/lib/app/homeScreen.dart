@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:app_biblioteca/funcoes.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -15,21 +15,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: CustomAppBar(title: 'Livraria'),
       drawer: Drawer(
-        child: Expanded(
-          child: ListView.builder(
-            itemCount: icone.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                child: ListTile(
-                  title: Text(texto[index]),
-                  onTap: () {
-                    Navigator.of(context)
-                        .pushNamed('${rota[index].toString()}');
-                  },
-                ),
-              );
-            },
-          ),
+        child: ListView.builder(
+          itemCount: texto.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              child: ListTile(
+                title: Text(texto[index]),
+                onTap: () {
+                  Navigator.of(context).pushNamed(rota[index]);
+                },
+              ),
+            );
+          },
         ),
       ),
       body: Column(
