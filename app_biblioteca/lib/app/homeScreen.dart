@@ -1,5 +1,6 @@
 import 'package:app_biblioteca/appBar.dart';
 import 'package:flutter/material.dart';
+import 'package:app_biblioteca/funcoes.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -13,14 +14,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: 'Livraria'),
-      body: Column(
-        children: [
-          Image.network(
-            'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
-            width: 100,
-            height: 100,
+      drawer: Drawer(
+        child: Expanded(
+          child: ListView.builder(
+            itemCount: icone.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                child: ListTile(
+                  title: Text(texto[index]),
+                  onTap: () {
+                    Navigator.of(context)
+                        .pushNamed('${rota[index].toString()}');
+                  },
+                ),
+              );
+            },
           ),
-        ],
+        ),
+      ),
+      body: Column(
+        children: [],
       ),
     );
   }
