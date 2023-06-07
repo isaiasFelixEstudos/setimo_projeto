@@ -10,11 +10,13 @@ class CadastrarGeneroLivro extends StatefulWidget {
 }
 
 class _CadastrarGeneroLivroState extends State<CadastrarGeneroLivro> {
+  
+
   int _paginaSelecionada = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cadastro de Livros e Genero')),
+      appBar: AppBar(title: Center(child: Text('Cadastro de Livros e Genero'))),
       body: IndexedStack(
         index: _paginaSelecionada,
         children: [

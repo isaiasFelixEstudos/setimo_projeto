@@ -9,14 +9,54 @@ class AddLivro extends StatefulWidget {
 }
 
 class _AddLivroState extends State<AddLivro> {
+  final _formkey = GlobalKey<FormState>();
+  //bool _emailValido = false;
+  bool _formValido = false;
+  TextEditingController folhas = TextEditingController();
+  TextEditingController genero = TextEditingController();
+  TextEditingController resumo = TextEditingController();
+  TextEditingController titulo = TextEditingController();
+
+  void _validacaoFormulario() {
+    _formkey.currentState?.validate();
+  }
+
+  String _validarEntrada(String? mensagem) {
+    if (mensagem == null || mensagem.isEmpty) {
+      return 'Preencha o campo';
+    } else {
+      return 'Campo preenchido';
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    folhas.addListener(_validacaoFormulario);
+    genero.addListener(_validacaoFormulario);
+    titulo.addListener(_validacaoFormulario);
+    resumo.addListener(_validacaoFormulario);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    folhas.removeListener(_validacaoFormulario);
+    genero.removeListener(_validacaoFormulario);
+    titulo.removeListener(_validacaoFormulario);
+    resumo.removeListener(_validacaoFormulario);
+  }
+
   final db = FirebaseFirestore.instance;
   Future<void> AddLivro() async {
     final livro = <String, dynamic>{
-      "descricao": "Genero teste",
-      "indicacaoIdade": "Livre",
-      "titulo": "genero teste"
+      "folhas": "${folhas.text}",
+      "genero": "${genero.text}",
+      "resumo": "${resumo.text}",
+      "titulo": "${titulo.text}"
+      
     };
-    db.collection('generos').add(livro).then(
+    db.collection('livros').add(livro).then(
           (DocumentReference doc) =>
               print('DocumentSnapshot added with ID: ${doc.id}'),
         );
@@ -27,7 +67,115 @@ class _AddLivroState extends State<AddLivro> {
     return Scaffold(
       body: Column(
         children: [
-          ElevatedButton(onPressed: AddLivro, child: Text('Adicionar Livro'))
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+            child: Column(
+              children: [
+                Image.network(
+                  'https://cdn-icons-png.flaticon.com/512/181/181548.png',
+                  width: 100,
+                  height: 100,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Center(
+                  child: Text('Cadastro de Livro'),
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: titulo,
+                  decoration: InputDecoration(
+                    errorStyle: TextStyle(
+                        color: _formValido ? Colors.blue : Colors.red),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: _formValido ? Colors.blue : Colors.red)),
+                    labelText: "Titulo",
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _formValido = value.isNotEmpty;
+                    });
+                  },
+                  validator: _validarEntrada,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: resumo,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    errorStyle: TextStyle(
+                        color: _formValido ? Colors.blue : Colors.red),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: _formValido ? Colors.blue : Colors.red)),
+                    labelText: "Resumo",
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _formValido = value.isNotEmpty;
+                    });
+                  },
+                  validator: _validarEntrada,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: genero,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    errorStyle: TextStyle(
+                        color: _formValido ? Colors.blue : Colors.red),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: _formValido ? Colors.blue : Colors.red)),
+                    labelText: "Genero",
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _formValido = value.isNotEmpty;
+                    });
+                  },
+                  validator: _validarEntrada,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: folhas,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    errorStyle: TextStyle(
+                        color: _formValido ? Colors.blue : Colors.red),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: _formValido ? Colors.blue : Colors.red)),
+                    labelText: "Folhas",
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _formValido = value.isNotEmpty;
+                    });
+                  },
+                  validator: _validarEntrada,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: AddLivro,
+                  child: Text('Cadastrar | Livro'),
+                ),
+              ],
+            ),
+          )
         ],
       ),
     );
