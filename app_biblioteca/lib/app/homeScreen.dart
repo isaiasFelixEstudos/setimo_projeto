@@ -13,25 +13,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Livraria'),
-      drawer: Drawer(
-        child: ListView.builder(
-          itemCount: texto.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              child: ListTile(
-                title: Text(texto[index]),
-                onTap: () {
-                  Navigator.of(context).pushNamed(rota[index]);
-                },
-              ),
-            );
-          },
+        appBar: CustomAppBar(title: 'Livraria'),
+        drawer: Drawer(
+          child: ListView.builder(
+            itemCount: colecao.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Card(
+                child: ListTile(
+                  title: Text(colecao[index]),
+                ),
+              );
+            },
+          ),
         ),
-      ),
-      body: Column(
-        children: [],
-      ),
-    );
+        body: Column(
+          children: [],
+        ));
   }
 }
