@@ -1,3 +1,4 @@
+import 'package:app_biblioteca/appBar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -11,10 +12,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Livraria'),
-      ),
-      drawer: Drawer(),
+      appBar: CustomAppBar(title: 'Livraria'),
       body: Column(
         children: [
           Image.network(
