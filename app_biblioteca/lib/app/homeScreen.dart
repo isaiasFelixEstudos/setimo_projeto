@@ -16,7 +16,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       drawer: Drawer(),
       body: Column(
-        children: [],
+        children: [
+          Image.network(
+            'https://viverdeblog.com/wp-content/uploads/2017/04/como-escrever-um-livro-topo.png',
+            width: 100,
+            height: 100,
+          ),
+        ],
       ),
     );
   }
