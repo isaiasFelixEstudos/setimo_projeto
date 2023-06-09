@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app/homeScreen.dart';
+import 'app/cadUser.dart';
+import 'app/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -14,6 +16,8 @@ void main() async {
       initialRoute: '/home',
       routes: {
         '/home': (_) => HomeScreen(),
+        '/login': (_) => TelaDeLogin(),
+        '/CadUser': (_) => PaginaDeCadastro(),
       },
     ),
   );

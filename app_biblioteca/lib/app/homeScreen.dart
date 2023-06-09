@@ -1,6 +1,6 @@
 import 'package:app_biblioteca/appBar.dart';
 import 'package:flutter/material.dart';
-import 'package:app_biblioteca/funcoes.dart';
+import 'package:app_biblioteca/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,21 +13,21 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(title: 'Livraria'),
-        drawer: Drawer(
-          child: ListView.builder(
-            itemCount: colecao.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                child: ListTile(
-                  title: Text(colecao[index]),
-                ),
-              );
-            },
+      appBar: CustomAppBar(title: 'Livraria'),
+      drawer: CustomDrawer(),
+      body: Column(
+        children: [
+          Center(
+            child: Icon(
+              Icons.local_library,
+              size: 200,
+            ),
           ),
-        ),
-        body: Column(
-          children: [],
-        ));
+          Center(
+            child: Text('Bibliotéca'),
+          )
+        ],
+      ),
+    );
   }
 }
