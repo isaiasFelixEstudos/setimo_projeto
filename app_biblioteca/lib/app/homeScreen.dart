@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Center(
             child: Icon(
               Icons.local_library,
-              size: 200,
+              size: 100,
             ),
           ),
           Center(

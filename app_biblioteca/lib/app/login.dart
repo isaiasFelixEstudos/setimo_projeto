@@ -85,10 +85,9 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
             padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
             child: Column(
               children: [
-                Image.network(
-                  'https://cdn-icons-png.flaticon.com/512/181/181548.png',
-                  width: 100,
-                  height: 100,
+                Icon(
+                  Icons.account_circle,
+                  size: 100,
                 ),
                 SizedBox(
                   height: 10,
