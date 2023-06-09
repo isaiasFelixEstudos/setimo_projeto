@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:app_biblioteca/appBar.dart';
+import 'package:app_biblioteca/drawer.dart';
 
 class TelaLogada extends StatefulWidget {
   const TelaLogada({Key? key}) : super(key: key);
@@ -11,9 +13,8 @@ class _TelaLogadaState extends State<TelaLogada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tela logada'),
-      ),
+      appBar: CustomAppBar(title: 'Cadastro de usuário'),
+      drawer: CustomDrawer(),
       body: Column(
         children: [
           Center(
