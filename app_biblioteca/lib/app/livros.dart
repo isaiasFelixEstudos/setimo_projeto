@@ -1,3 +1,4 @@
+import 'package:app_biblioteca/app/arealivros.dart';
 import 'package:flutter/material.dart';
 import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
@@ -15,9 +16,7 @@ class _PgLivrosState extends State<PgLivros> {
     return Scaffold(
       appBar: CustomAppBar(title: 'Livros'),
       drawer: CustomDrawer(),
-      body: Column(
-        children: [],
-      ),
+      body: AreaLivros(),
     );
   }
 }
