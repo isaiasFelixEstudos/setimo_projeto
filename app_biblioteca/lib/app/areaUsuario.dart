@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
-import 'package:app_biblioteca/controleUsuario.dart';
 
 class TelaLogada extends StatefulWidget {
   const TelaLogada({Key? key}) : super(key: key);
