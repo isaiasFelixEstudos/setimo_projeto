@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:app_biblioteca/funcoes.dart';
 import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
 import 'package:flutter/material.dart';
@@ -30,12 +31,13 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
     }
   }
 
+/*
   Future<void> logarBase() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailvalido.text, password: _senhavalida.text);
     Navigator.of(context).pushNamed('/areusuario');
   }
-
+*/
   Future<void> logarGoogle() async {
     final GoogleSignIn googleSignIn = await GoogleSignIn();
     final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
@@ -140,7 +142,9 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: logarBase,
+                  onPressed: () {
+                    logarBase(_emailvalido.text, _senhavalida.text);
+                  },
                   child: Text('Login'),
                 ),
                 SizedBox(
@@ -152,12 +156,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                 ),
                 SizedBox(
                   height: 2,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/cadastroUsuario');
-                  },
-                  child: Text('Criar cadastro'),
                 ),
               ],
             ),
