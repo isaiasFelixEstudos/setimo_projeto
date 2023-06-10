@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'deslogarusuario.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -23,6 +24,15 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ],
         ),
       ),
+      actions: [
+        GestureDetector(
+          onTap: () {
+            deslogarFirebase();
+            Navigator.of(context).pushNamed('/login');
+          },
+          child: Icon(Icons.logout),
+        )
+      ],
     );
   }
 }
