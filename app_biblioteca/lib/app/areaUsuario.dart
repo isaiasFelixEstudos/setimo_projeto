@@ -4,8 +4,6 @@ import 'package:app_biblioteca/app/addbook.dart';
 import 'package:app_biblioteca/app/bookUser.dart';
 import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
-import 'package:get/get.dart';
-import 'package:app_biblioteca/controleUsuario.dart';
 
 class TelaLogada extends StatefulWidget {
   const TelaLogada({Key? key}) : super(key: key);
@@ -18,7 +16,6 @@ class _TelaLogadaState extends State<TelaLogada> {
   int _paginaSelecionada = 0;
   @override
   Widget build(BuildContext context) {
-    final controllUser = Get.find<UserController>();
     return Scaffold(
       appBar: CustomAppBar(title: 'Área do usuário'),
       drawer: CustomDrawer(),
