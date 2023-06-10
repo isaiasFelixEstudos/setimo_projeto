@@ -15,7 +15,7 @@ class _AreaUserBookState extends State<AreaUserBook> {
     final controllUser = Get.find<UserController>();
     return Scaffold(
       body: Column(
-        children: [Text('Ola, ${controllUser.user!.email}')],
+        children: [Text('Ola, ${controllUser.user?.email}')],
       ),
     );
   }
