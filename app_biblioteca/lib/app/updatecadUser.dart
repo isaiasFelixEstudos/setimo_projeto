@@ -96,7 +96,7 @@ class _UpdateCadUserState extends State<UpdateCadUser> {
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () async {
+              onPressed: () {
                 if (_formkey.currentState!.validate()) {
                   atualizarUsuarioAuthFirebase(
                       context, _emailvalido.text, _nomevalido.text);
