@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
 import 'package:flutter/rendering.dart';
+import 'dart:async';
 
 class PaginaDeCadastro extends StatefulWidget {
   const PaginaDeCadastro({Key? key}) : super(key: key);
@@ -25,6 +26,16 @@ class _PaginaDeCadastroState extends State<PaginaDeCadastro> {
   Future<void> cadastrarBase() async {
     await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: _emailvalido.text, password: _senhavalida.text);
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          Timer(Duration(seconds: 2), () {
+            Navigator.of(context).pop();
+          });
+          return AlertDialog(
+            content: Text('Usuario Cadastrado com Sucesso'),
+          );
+        });
   }
 
   String _validarEntrada(String? mensagem) {
