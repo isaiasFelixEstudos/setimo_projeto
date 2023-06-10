@@ -1,7 +1,8 @@
-import 'package:app_biblioteca/funcoes.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class TelaDeLogin extends StatefulWidget {
   const TelaDeLogin({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class TelaDeLogin extends StatefulWidget {
 
 class _TelaDeLoginState extends State<TelaDeLogin> {
   final _formkey = GlobalKey<FormState>();
-
+  //bool _emailValido = false;
   bool _formValido = false;
   TextEditingController _emailvalido = TextEditingController();
   TextEditingController _senhavalida = TextEditingController();
@@ -26,6 +27,36 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
       return 'Preencha o campo';
     } else {
       return 'Campo preenchido';
+    }
+  }
+
+  Future<void> logarBase() async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: _emailvalido.text, password: _senhavalida.text);
+    Navigator.of(context).pushNamed('/areusuario');
+  }
+
+  Future<void> logarGoogle() async {
+    final GoogleSignIn googleSignIn = await GoogleSignIn();
+    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+    print(googleAuth?.idToken); // should not be null or empty
+    print(googleAuth?.accessToken); // should not be null or empty
+
+    final AuthCredential credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    final UserCredential authResult =
+        await FirebaseAuth.instance.signInWithCredential(credential);
+    final User? user = authResult.user;
+
+    //customMaterialBanner(context, 'Logado com sucesso!', Colors.green);
+    if (user != null) {
+      Navigator.of(context).pushNamedAndRemoveUntil(
+          '/homeLogin', (Route<dynamic> route) => false);
     }
   }
 
@@ -109,9 +140,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    logarBase(_emailvalido.text, _senhavalida.text);
-                  },
+                  onPressed: logarBase,
                   child: Text('Login'),
                 ),
                 SizedBox(
