@@ -49,6 +49,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
               },
             ),
           ),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.library_books),
+              title: Text('Livros'),
+              onTap: () {
+                Navigator.of(context).pushNamed('/livros');
+              },
+            ),
+          ),
         ],
       ),
     );
