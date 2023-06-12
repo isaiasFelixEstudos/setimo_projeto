@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:app_biblioteca/appBar.dart';
-import 'package:app_biblioteca/drawer.dart';
+
 import 'package:flutter/rendering.dart';
 import 'dart:async';
 
@@ -63,7 +62,7 @@ class _PaginaDeCadastroforaState extends State<PaginaDeCadastrofora> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Cadastro de usuário'),
+      appBar: AppBar(title: Text('Cadastro de usuário')),
       body: Column(
         children: [
           Padding(

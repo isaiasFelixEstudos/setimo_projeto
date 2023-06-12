@@ -1,6 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:app_biblioteca/appBar.dart';
-import 'package:app_biblioteca/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -77,7 +75,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Login'),
+      appBar: AppBar(title: Text('Login')),
       body: Column(
         children: [
           Padding(
