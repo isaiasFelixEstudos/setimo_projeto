@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
-import 'app/homeScreen.dart';
-import 'app/cadUser.dart';
-import 'app/cadastroUser.dart';
-import 'app/login.dart';
-import 'app/updatecadUser.dart';
-import 'package:app_biblioteca/app/livros.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'app/cadastroUser.dart';
+import 'app/login.dart';
+import 'app/paginas/cadUser.dart';
+import 'app/paginas/homeScreen.dart';
+import 'app/paginas/livros.dart';
+import 'app/paginas/updatecadUser.dart';
 
+/*
+import 'app/paginas/addbook.dart';
+import 'app/paginas/addgender.dart';
+import 'app/paginas/arealivros.dart';
+import 'app/paginas/bookUser.dart';
+*/
 void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

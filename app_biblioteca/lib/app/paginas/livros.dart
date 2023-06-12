@@ -1,7 +1,7 @@
-import 'package:app_biblioteca/app/arealivros.dart';
+import 'package:app_biblioteca/app/paginas/arealivros.dart';
 import 'package:flutter/material.dart';
-import 'package:app_biblioteca/appBar.dart';
-import 'package:app_biblioteca/drawer.dart';
+import 'package:app_biblioteca/ferramentas/appBar.dart';
+import 'package:app_biblioteca/ferramentas/drawer.dart';
 
 class PgLivros extends StatefulWidget {
   const PgLivros({super.key});

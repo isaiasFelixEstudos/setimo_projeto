@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'deslogarusuario.dart';
+import 'package:app_biblioteca/funcoes/deslogarusuario.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

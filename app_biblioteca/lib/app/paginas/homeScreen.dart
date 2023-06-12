@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:app_biblioteca/app/addgender.dart';
-import 'package:app_biblioteca/app/addbook.dart';
-import 'package:app_biblioteca/app/bookUser.dart';
-import 'package:app_biblioteca/appBar.dart';
-import 'package:app_biblioteca/drawer.dart';
+import 'package:app_biblioteca/app/paginas/addgender.dart';
+import 'package:app_biblioteca/app/paginas/addbook.dart';
+import 'package:app_biblioteca/app/paginas/bookUser.dart';
+import 'package:app_biblioteca/ferramentas/appBar.dart';
+import 'package:app_biblioteca/ferramentas/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

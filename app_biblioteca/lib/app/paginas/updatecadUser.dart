@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:app_biblioteca/appBar.dart';
-import 'package:app_biblioteca/atualizarUser.dart';
-import 'package:app_biblioteca/drawer.dart';
+import 'package:app_biblioteca/ferramentas/appBar.dart';
+import 'package:app_biblioteca/funcoes/atualizarUser.dart';
+import 'package:app_biblioteca/ferramentas/drawer.dart';
 
 class UpdateCadUser extends StatefulWidget {
   const UpdateCadUser({super.key});

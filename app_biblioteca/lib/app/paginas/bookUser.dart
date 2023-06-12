@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:app_biblioteca/controleUsuario.dart';
+import 'package:app_biblioteca/funcoes/controleUsuario.dart';
 
 class AreaUserBook extends StatefulWidget {
   const AreaUserBook({super.key});
