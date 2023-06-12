@@ -71,11 +71,11 @@ class _AddLivroState extends State<AddLivro> {
             padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
             child: Column(
               children: [
-                Image.network(
-                  'https://cdn-icons-png.flaticon.com/512/181/181548.png',
-                  width: 100,
-                  height: 100,
+                Icon(
+                  Icons.bookmark_add,
+                  size: 100,
                 ),
+                Text('Cadastrar Livro'),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: titulo,
