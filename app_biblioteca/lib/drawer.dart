@@ -24,7 +24,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               child: Text(
                   controllUser.user?.email?.isNotEmpty == true
                       ? controllUser.user!.email![0]
-                      : 'C',
+                      : 'N',
                   style: TextStyle(fontSize: 40.0)),
             ),
           ),
@@ -58,18 +58,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
           Card(
             child: ListTile(
               leading: Icon(Icons.person_2),
-              title: Text('Atualizar cadastro de usuário'),
+              title: Text('Perfil'),
               onTap: () {
                 Navigator.of(context).pushNamed('/updateuser');
-              },
-            ),
-          ),
-          Card(
-            child: ListTile(
-              leading: Icon(Icons.person_2_sharp),
-              title: Text('Área do Usuários'),
-              onTap: () {
-                Navigator.of(context).pushNamed('/areusuario');
               },
             ),
           ),
@@ -84,7 +75,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           Card(
             child: ListTile(
-              leading: Icon(Icons.person_2_sharp),
+              leading: Icon(Icons.bookmark_border),
               title: Text('Livros que li'),
               onTap: () {
                 Navigator.of(context).pushNamed('');

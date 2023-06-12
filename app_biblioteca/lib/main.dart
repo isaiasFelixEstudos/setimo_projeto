@@ -5,7 +5,6 @@ import 'app/cadastroUser.dart';
 import 'app/login.dart';
 import 'app/updatecadUser.dart';
 import 'package:app_biblioteca/app/livros.dart';
-import 'package:app_biblioteca/app/areaUsuario.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -22,7 +21,6 @@ void main() async {
         '/home': (_) => HomeScreen(),
         '/login': (_) => TelaDeLogin(),
         '/CadUser': (_) => PaginaDeCadastro(),
-        '/areusuario': (_) => TelaLogada(),
         '/livros': (_) => PgLivros(),
         '/updateuser': (_) => UpdateCadUser(),
         '/cadUserfora': (_) => PaginaDeCadastrofora(),

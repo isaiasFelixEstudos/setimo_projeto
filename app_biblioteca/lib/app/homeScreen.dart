@@ -1,5 +1,8 @@
-import 'package:app_biblioteca/appBar.dart';
 import 'package:flutter/material.dart';
+import 'package:app_biblioteca/app/addgender.dart';
+import 'package:app_biblioteca/app/addbook.dart';
+import 'package:app_biblioteca/app/bookUser.dart';
+import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,22 +13,40 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _paginaSelecionada = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(title: 'Livraria'),
       drawer: CustomDrawer(),
-      body: Column(
+      body: IndexedStack(
+        index: _paginaSelecionada,
         children: [
-          Center(
-            child: Icon(
-              Icons.local_library,
-              size: 100,
-            ),
+          AreaUserBook(),
+          AddGenero(),
+          AddLivro(),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _paginaSelecionada,
+        onTap: (int? novoValor) {
+          setState(() {
+            _paginaSelecionada = novoValor!;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.library_books),
+            label: 'Livros do usuário',
           ),
-          Center(
-            child: Text('Bibliotéca'),
-          )
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bookmark_add),
+            label: 'Cadastrar genero',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.book),
+            label: 'Cadastrar Livro',
+          ),
         ],
       ),
     );
