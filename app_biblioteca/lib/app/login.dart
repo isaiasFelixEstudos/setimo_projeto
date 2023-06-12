@@ -31,7 +31,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   Future<void> logarBase() async {
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailvalido.text, password: _senhavalida.text);
-    Navigator.of(context).pushNamed('/areusuario');
+    Navigator.of(context).pushNamed('/home');
   }
 
   Future<void> logarGoogle() async {

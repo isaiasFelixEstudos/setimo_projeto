@@ -66,7 +66,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           Card(
             child: ListTile(
-              leading: Icon(Icons.person_2_sharp),
+              leading: Icon(Icons.bookmark_add),
               title: Text('Cadastrar Livros'),
               onTap: () {
                 Navigator.of(context).pushNamed('');
