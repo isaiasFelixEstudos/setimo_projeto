@@ -39,15 +39,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           Card(
             child: ListTile(
-              leading: Icon(Icons.account_circle),
-              title: Text('Login'),
-              onTap: () {
-                Navigator.of(context).pushNamed('/login');
-              },
-            ),
-          ),
-          Card(
-            child: ListTile(
               leading: Icon(Icons.supervised_user_circle),
               title: Text('Cadastro de Usuario'),
               onTap: () {
@@ -79,6 +70,24 @@ class _CustomDrawerState extends State<CustomDrawer> {
               title: Text('Área do Usuários'),
               onTap: () {
                 Navigator.of(context).pushNamed('/areusuario');
+              },
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.person_2_sharp),
+              title: Text('Cadastrar Livros'),
+              onTap: () {
+                Navigator.of(context).pushNamed('');
+              },
+            ),
+          ),
+          Card(
+            child: ListTile(
+              leading: Icon(Icons.person_2_sharp),
+              title: Text('Livros que li'),
+              onTap: () {
+                Navigator.of(context).pushNamed('');
               },
             ),
           ),

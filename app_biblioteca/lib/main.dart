@@ -16,7 +16,7 @@ void main() async {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: '/login',
       routes: {
         '/home': (_) => HomeScreen(),
         '/login': (_) => TelaDeLogin(),

@@ -153,6 +153,12 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                 SizedBox(
                   height: 2,
                 ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/CadUser');
+                  },
+                  child: Text('Cadastrar Usuário'),
+                ),
               ],
             ),
           )
