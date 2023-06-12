@@ -1,17 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:app_biblioteca/appBar.dart';
 import 'package:app_biblioteca/drawer.dart';
-import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter/rendering.dart';
+import 'dart:async';
 
-class TelaDeLogin extends StatefulWidget {
-  const TelaDeLogin({Key? key}) : super(key: key);
+class PaginaDeCadastrofora extends StatefulWidget {
+  const PaginaDeCadastrofora({Key? key}) : super(key: key);
 
   @override
-  State<TelaDeLogin> createState() => _TelaDeLoginState();
+  State<PaginaDeCadastrofora> createState() => _PaginaDeCadastroforaState();
 }
 
-class _TelaDeLoginState extends State<TelaDeLogin> {
+class _PaginaDeCadastroforaState extends State<PaginaDeCadastrofora> {
   final _formkey = GlobalKey<FormState>();
   //bool _emailValido = false;
   bool _formValido = false;
@@ -22,41 +23,26 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
     _formkey.currentState?.validate();
   }
 
+  Future<void> cadastrarBase() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailvalido.text, password: _senhavalida.text);
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          Timer(Duration(seconds: 2), () {
+            Navigator.of(context).pop();
+          });
+          return AlertDialog(
+            content: Text('Usuario Cadastrado com Sucesso'),
+          );
+        });
+  }
+
   String _validarEntrada(String? mensagem) {
     if (mensagem == null || mensagem.isEmpty) {
       return 'Preencha o campo';
     } else {
       return 'Campo preenchido';
-    }
-  }
-
-  Future<void> logarBase() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: _emailvalido.text, password: _senhavalida.text);
-    Navigator.of(context).pushNamed('/areusuario');
-  }
-
-  Future<void> logarGoogle() async {
-    final GoogleSignIn googleSignIn = await GoogleSignIn();
-    final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-    print(googleAuth?.idToken); // should not be null or empty
-    print(googleAuth?.accessToken); // should not be null or empty
-
-    final AuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-
-    final UserCredential authResult =
-        await FirebaseAuth.instance.signInWithCredential(credential);
-    final User? user = authResult.user;
-
-    //customMaterialBanner(context, 'Logado com sucesso!', Colors.green);
-    if (user != null) {
-      Navigator.of(context).pushNamedAndRemoveUntil(
-          '/homeLogin', (Route<dynamic> route) => false);
     }
   }
 
@@ -77,7 +63,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Login'),
+      appBar: CustomAppBar(title: 'Cadastro de usuário'),
       body: Column(
         children: [
           Padding(
@@ -85,14 +71,14 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
             child: Column(
               children: [
                 Icon(
-                  Icons.account_circle,
+                  Icons.supervised_user_circle,
                   size: 100,
                 ),
                 SizedBox(
                   height: 10,
                 ),
                 Center(
-                  child: Text('Login App'),
+                  child: Text('Cadastro de usuário'),
                 ),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -123,9 +109,8 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                     errorStyle: TextStyle(
                         color: _formValido ? Colors.blue : Colors.red),
                     errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: _formValido ? Colors.blue : Colors.red),
-                    ),
+                        borderSide: BorderSide(
+                            color: _formValido ? Colors.blue : Colors.red)),
                     labelText: "Senha",
                   ),
                   onChanged: (value) {
@@ -139,24 +124,8 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: logarBase,
-                  child: Text('Login'),
-                ),
-                SizedBox(
-                  height: 2,
-                ),
-                ElevatedButton(
-                  onPressed: logarGoogle,
-                  child: Text('Login - google'),
-                ),
-                SizedBox(
-                  height: 2,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/cadUserfora');
-                  },
-                  child: Text('Cadastrar Usuário'),
+                  onPressed: cadastrarBase,
+                  child: Text('Cadastrar'),
                 ),
               ],
             ),

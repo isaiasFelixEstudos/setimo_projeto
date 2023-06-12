@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'app/homeScreen.dart';
 import 'app/cadUser.dart';
+import 'app/cadastroUser.dart';
 import 'app/login.dart';
 import 'app/updatecadUser.dart';
 import 'package:app_biblioteca/app/livros.dart';
@@ -24,6 +25,7 @@ void main() async {
         '/areusuario': (_) => TelaLogada(),
         '/livros': (_) => PgLivros(),
         '/updateuser': (_) => UpdateCadUser(),
+        '/cadUserfora': (_) => PaginaDeCadastrofora(),
       },
     ),
   );
