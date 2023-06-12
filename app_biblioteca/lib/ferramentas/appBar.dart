@@ -28,7 +28,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         GestureDetector(
           onTap: () {
             deslogarFirebase();
-            Navigator.of(context).popUntil(ModalRoute.withName('/login'));
+            Navigator.of(context).pushNamed('/login');
           },
           child: Icon(Icons.logout),
         )
