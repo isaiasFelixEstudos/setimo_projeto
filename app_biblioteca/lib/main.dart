@@ -27,7 +27,7 @@ void main() async {
         '/home': (_) => HomeScreen(),
         '/login': (_) => TelaDeLogin(),
         '/CadUser': (_) => PaginaDeCadastro(),
-        '/livros': (_) => PgLivros(),
+        '/livros': (_) => RepoLivro(),
         '/updateuser': (_) => UpdateCadUser(),
         '/cadUserfora': (_) => PaginaDeCadastrofora(),
       },

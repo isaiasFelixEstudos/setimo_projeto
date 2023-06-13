@@ -65,112 +65,114 @@ class _AddLivroState extends State<AddLivro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
-            child: Column(
-              children: [
-                Icon(
-                  Icons.bookmark_add,
-                  size: 100,
-                ),
-                Text('Cadastrar Livro'),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: titulo,
-                  decoration: InputDecoration(
-                    errorStyle: TextStyle(
-                        color: _formValido ? Colors.blue : Colors.red),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: _formValido ? Colors.blue : Colors.red)),
-                    labelText: "Titulo",
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+              child: Column(
+                children: [
+                  Icon(
+                    Icons.bookmark_add,
+                    size: 100,
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      _formValido = value.isNotEmpty;
-                    });
-                  },
-                  validator: _validarEntrada,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: resumo,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    errorStyle: TextStyle(
-                        color: _formValido ? Colors.blue : Colors.red),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: _formValido ? Colors.blue : Colors.red)),
-                    labelText: "Resumo",
+                  Text('Cadastrar Livro'),
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    controller: titulo,
+                    decoration: InputDecoration(
+                      errorStyle: TextStyle(
+                          color: _formValido ? Colors.blue : Colors.red),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: _formValido ? Colors.blue : Colors.red)),
+                      labelText: "Titulo",
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        _formValido = value.isNotEmpty;
+                      });
+                    },
+                    validator: _validarEntrada,
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      _formValido = value.isNotEmpty;
-                    });
-                  },
-                  validator: _validarEntrada,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: genero,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    errorStyle: TextStyle(
-                        color: _formValido ? Colors.blue : Colors.red),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: _formValido ? Colors.blue : Colors.red)),
-                    labelText: "Genero",
+                  SizedBox(
+                    height: 20,
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      _formValido = value.isNotEmpty;
-                    });
-                  },
-                  validator: _validarEntrada,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextFormField(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: folhas,
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    errorStyle: TextStyle(
-                        color: _formValido ? Colors.blue : Colors.red),
-                    errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: _formValido ? Colors.blue : Colors.red)),
-                    labelText: "Folhas",
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    controller: resumo,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      errorStyle: TextStyle(
+                          color: _formValido ? Colors.blue : Colors.red),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: _formValido ? Colors.blue : Colors.red)),
+                      labelText: "Resumo",
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        _formValido = value.isNotEmpty;
+                      });
+                    },
+                    validator: _validarEntrada,
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      _formValido = value.isNotEmpty;
-                    });
-                  },
-                  validator: _validarEntrada,
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: AddLivro,
-                  child: Text('Cadastrar | Livro'),
-                ),
-              ],
-            ),
-          )
-        ],
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    controller: genero,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      errorStyle: TextStyle(
+                          color: _formValido ? Colors.blue : Colors.red),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: _formValido ? Colors.blue : Colors.red)),
+                      labelText: "Genero",
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        _formValido = value.isNotEmpty;
+                      });
+                    },
+                    validator: _validarEntrada,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    controller: folhas,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      errorStyle: TextStyle(
+                          color: _formValido ? Colors.blue : Colors.red),
+                      errorBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                              color: _formValido ? Colors.blue : Colors.red)),
+                      labelText: "Folhas",
+                    ),
+                    onChanged: (value) {
+                      setState(() {
+                        _formValido = value.isNotEmpty;
+                      });
+                    },
+                    validator: _validarEntrada,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: AddLivro,
+                    child: Text('Cadastrar | Livro'),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
