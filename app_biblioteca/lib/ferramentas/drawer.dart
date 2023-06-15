@@ -10,9 +10,10 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
+  final controllUser = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
-    final controllUser = Get.put(UserController());
+    
     return Drawer(
       child: ListView(
         children: [

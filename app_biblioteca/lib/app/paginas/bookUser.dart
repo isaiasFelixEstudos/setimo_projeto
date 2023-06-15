@@ -10,12 +10,15 @@ class AreaUserBook extends StatefulWidget {
 }
 
 class _AreaUserBookState extends State<AreaUserBook> {
+  final UserController _userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
-    final controllUser = Get.find<UserController>();
+    
     return Scaffold(
       body: Column(
-        children: [Text('${controllUser.user?.email ?? "Usuário não logado"}')],
+        children: [
+          Text('${_userController.user?.email ?? "Usuário não logado"}')
+        ],
       ),
     );
   }

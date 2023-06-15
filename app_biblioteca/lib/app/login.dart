@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_sign_in/google_sign_in.dart';
 
 class TelaDeLogin extends StatefulWidget {
@@ -14,6 +15,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   //bool _emailValido = false;
   bool _formValido = false;
   TextEditingController _emailvalido = TextEditingController();
+  
   TextEditingController _senhavalida = TextEditingController();
 
   void _validacaoFormulario() {
@@ -53,8 +55,8 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
 
     //customMaterialBanner(context, 'Logado com sucesso!', Colors.green);
     if (user != null) {
-      Navigator.of(context).pushNamedAndRemoveUntil(
-          '/homeLogin', (Route<dynamic> route) => false);
+      Navigator.of(context)
+          .pushNamedAndRemoveUntil('/home', (Route<dynamic> route) => false);
     }
   }
 
@@ -63,6 +65,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
     super.initState();
     _emailvalido.addListener(_validacaoFormulario);
     _senhavalida.addListener(_validacaoFormulario);
+    
   }
 
   @override
@@ -70,6 +73,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
     super.dispose();
     _emailvalido.removeListener(_validacaoFormulario);
     _senhavalida.removeListener(_validacaoFormulario);
+    
   }
 
   @override
@@ -136,8 +140,12 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                 SizedBox(
                   height: 20,
                 ),
+                
                 ElevatedButton(
-                  onPressed: logarBase,
+                  onPressed: () {
+                    logarBase();
+                    
+                  },
                   child: Text('Login'),
                 ),
                 SizedBox(

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/rendering.dart';
 import 'dart:async';
 
@@ -15,10 +16,18 @@ class _PaginaDeCadastroforaState extends State<PaginaDeCadastrofora> {
   //bool _emailValido = false;
   bool _formValido = false;
   TextEditingController _emailvalido = TextEditingController();
-  TextEditingController _senhavalida = TextEditingController();
+  TextEditingController _senhavalida = TextEditingController();TextEditingController _nome = TextEditingController();
 
   void _validacaoFormulario() {
     _formkey.currentState?.validate();
+  }
+  final db = FirebaseFirestore.instance;
+  Future<void> AddUser() async {
+    final livro = <String, dynamic>{"nome": "${_nome.text}"};
+    db.collection('usuarios').add(livro).then(
+          (DocumentReference doc) =>
+              print('DocumentSnapshot added with ID: ${doc.id}'),
+        );
   }
 
   Future<void> cadastrarBase() async {
@@ -49,6 +58,7 @@ class _PaginaDeCadastroforaState extends State<PaginaDeCadastrofora> {
     super.initState();
     _emailvalido.addListener(_validacaoFormulario);
     _senhavalida.addListener(_validacaoFormulario);
+    _nome.addListener(_validacaoFormulario);
   }
 
   @override
@@ -56,6 +66,7 @@ class _PaginaDeCadastroforaState extends State<PaginaDeCadastrofora> {
     super.dispose();
     _emailvalido.removeListener(_validacaoFormulario);
     _senhavalida.removeListener(_validacaoFormulario);
+    _nome.removeListener(_validacaoFormulario);
   }
 
   @override
@@ -121,8 +132,32 @@ class _PaginaDeCadastroforaState extends State<PaginaDeCadastrofora> {
                 SizedBox(
                   height: 20,
                 ),
+                TextFormField(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  controller: _nome,
+                  decoration: InputDecoration(
+                    errorStyle: TextStyle(
+                        color: _formValido ? Colors.blue : Colors.red),
+                    errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: _formValido ? Colors.blue : Colors.red)),
+                    labelText: "Nome",
+                  ),
+                  onChanged: (value) {
+                    setState(() {
+                      _formValido = value.isNotEmpty;
+                    });
+                  },
+                  validator: _validarEntrada,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
                 ElevatedButton(
-                  onPressed: cadastrarBase,
+                  onPressed: (){
+                    AddUser();
+                    cadastrarBase();
+                  },
                   child: Text('Cadastrar'),
                 ),
               ],
