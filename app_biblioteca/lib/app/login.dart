@@ -15,7 +15,7 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
   //bool _emailValido = false;
   bool _formValido = false;
   TextEditingController _emailvalido = TextEditingController();
-  
+
   TextEditingController _senhavalida = TextEditingController();
 
   void _validacaoFormulario() {
@@ -65,7 +65,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
     super.initState();
     _emailvalido.addListener(_validacaoFormulario);
     _senhavalida.addListener(_validacaoFormulario);
-    
   }
 
   @override
@@ -73,7 +72,6 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
     super.dispose();
     _emailvalido.removeListener(_validacaoFormulario);
     _senhavalida.removeListener(_validacaoFormulario);
-    
   }
 
   @override
@@ -140,11 +138,9 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                 SizedBox(
                   height: 20,
                 ),
-                
                 ElevatedButton(
                   onPressed: () {
                     logarBase();
-                    
                   },
                   child: Text('Login'),
                 ),
